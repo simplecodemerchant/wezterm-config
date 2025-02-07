@@ -80,9 +80,7 @@ config.keys = {
   {
     key = 'd',
     mods = 'SUPER|SHIFT',
-    action = act.SplitVertical {
-      cwd = wezterm.home_dir
-    }
+    action = act.SplitVertical {}
   },
   {
     key = 't',
