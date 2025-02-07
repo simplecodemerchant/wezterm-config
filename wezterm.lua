@@ -3,7 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-local colors, _metadata = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/tokyonight-storm.toml")
+local colors, _ = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/tokyonight-storm.toml")
 config.colors = colors
 
 config.font = wezterm.font 'JetBrains Mono'
@@ -29,7 +29,7 @@ end
 
 wezterm.on(
   'format-tab-title',
-  function(tab, tabs, panes, config, hover, max_width)
+  function(tab, _tabs, _panes, _config, hover, _max_width)
     local edge_background = '#0b0022'
     local background = '#1b1032'
     local foreground = '#808080'
@@ -77,6 +77,20 @@ config.keys = {
     mods = "CMD",
     action = act.ActivateTabRelative(1)
   },
+  {
+    key = 'd',
+    mods = 'SUPER|SHIFT',
+    action = act.SplitVertical {
+      cwd = wezterm.home_dir
+    }
+  },
+  {
+    key = 't',
+    mods = 'SUPER',
+    action = act.SpawnCommandInNewTab {
+      cwd = wezterm.home_dir
+    }
+  }
 }
 
 config.scrollback_lines = 10000
