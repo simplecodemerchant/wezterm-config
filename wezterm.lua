@@ -3,7 +3,7 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-colors, metadata = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/tokyonight-storm.toml")
+local colors, _metadata = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/tokyonight-storm.toml")
 config.colors = colors
 
 config.font = wezterm.font 'JetBrains Mono'
@@ -16,7 +16,7 @@ config.tab_bar_at_bottom = true
 -- It prefers the title that was set via `tab:set_title()`
 -- or `wezterm cli set-tab-title`, but falls back to the
 -- title of the active pane in that tab.
-function tab_title(tab_info)
+local function tab_title(tab_info)
   local title = tab_info.tab_title
   -- if the tab title is explicitly set, take that
   if title and #title > 0 then
@@ -42,7 +42,6 @@ wezterm.on(
       foreground = '#909090'
     end
 
-    wezterm.log_info(config)
     local edge_foreground = background
 
     local title = tab_title(tab)
