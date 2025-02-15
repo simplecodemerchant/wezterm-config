@@ -3,8 +3,9 @@ local act = wezterm.action
 
 local config = wezterm.config_builder()
 
-local colors, _ = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/tokyonight-storm.toml")
-config.colors = colors
+-- local colors, _ = wezterm.color.load_scheme(wezterm.home_dir .. "/.config/wezterm/tokyonight-storm.toml")
+-- config.colors = colors
+config.color_scheme = "Catppuccin Macchiato"
 
 config.font = wezterm.font("ZedMono Nerd Font Mono", { weight = "Light", stretch = "Expanded", style = "Normal" })
 config.font_size = 14
